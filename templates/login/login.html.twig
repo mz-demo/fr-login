@@ -1,0 +1,27 @@
+{# templates/login/login.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col">
+            <h1>Login</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+            {% for label, messages in app.flashes(['success', 'danger']) %}
+                {% for message in messages %}
+                    <div class="alert alert-primary alert-{{ label }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="col">
+        </div>
+    </div>
+
+{% endblock %}
